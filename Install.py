@@ -1,4 +1,4 @@
-import shutil
+import subprocess
 import os
 from Build import build
 
@@ -9,7 +9,10 @@ def installFolder(source, dest):
     homedir = os.getenv('HOME')
     destdir = os.path.join(homedir, dest)
     print('Installing ' + source + ' -> ' + destdir)
-    shutil.copytree(source, destdir, dirs_exist_ok=True)
+    subprocess.call(['mkdir', '-p', destdir])
+    subprocess.call(['cp', '-r', source, destdir])
 
 # Install dotfiles
-installFolder('themes', '.themes')
+installFolder('themes/oomox-GtkTheme', '.themes')
+installFolder('themes/WindowTheme', '.themes')
+installFolder('icons/Zafiro-icons', '.icons')

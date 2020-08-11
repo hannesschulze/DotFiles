@@ -15,12 +15,18 @@ def build():
     # Requirements
     checkForRequirement('inkscape')
     checkForRequirement('oomox-cli')
+    checkForRequirement('git')
 
     # Arguments
     hidpi = '--hidpi' in sys.argv
 
     # Compile the assets
     compileAssets(os.path.dirname(os.path.abspath(__file__)), hidpi=hidpi)
+
+    # Download submodules
+    print('Downloading additional git submodules...')
+    subprocess.call(['git', 'submodule', 'init'])
+    subprocess.call(['git', 'submodule', 'update'])
 
 if __name__ == '__main__':
     build()
