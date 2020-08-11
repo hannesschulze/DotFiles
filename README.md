@@ -15,15 +15,10 @@
 - `gtk2-engines`
 - `git`
 
-## Fonts
-
-- Inter
-- Jetbrains Mono
-
 ## Installation
 
 ```sh
-python3 Install.py
+python3 Install.py [--hidpi]
 ```
 
 ### Completing the installation

@@ -34,6 +34,8 @@ installFolder('config/nvim', '.config')
 installFolder('config/plank', '.config')
 installFolder('config/ulauncher', '.config')
 installFolder('config/xfce4', '.config')
+installFolder('fonts/JetBrainsMono/ttf', '.fonts')
+installFolder('fonts/inter/Inter Desktop', '.fonts')
 
 # Apply settings
 setPlankPreferences()

@@ -3,3 +3,5 @@ oomox-GtkTheme
 xfwm4.xml
 xsettings.xml
 alacritty.yml
+fonts/inter
+*.zip
