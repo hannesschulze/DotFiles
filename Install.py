@@ -27,6 +27,11 @@ def setPlankLayout():
 installFolder('themes/oomox-GtkTheme', '.themes')
 installFolder('themes/WindowTheme', '.themes')
 installFolder('icons/Zafiro-icons', '.icons')
+installFolder('config/alacritty', '.config')
+installFolder('config/nvim', '.config')
+installFolder('config/plank', '.config')
+installFolder('config/ulauncher', '.config')
+installFolder('config/xfce4', '.config')
 
 # Apply settings
 setPlankLayout()
