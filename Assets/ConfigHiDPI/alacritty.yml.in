@@ -1,0 +1,51 @@
+window:
+  dimensions:
+    columns: 80
+    lines: 30
+
+font:
+  normal:
+    family: "Jetbrains Mono"
+    style: Medium
+
+  bold:
+    family: "Jetbrains Mono"
+    style: Bold
+
+  italic:
+    family: "Jetbrains Mono"
+    style: "Medium Italic"
+
+  bold_italic:
+    family: "Jetbrains Mono"
+    style: "Bold Italic"
+
+  size: $fontsize
+
+key_bindings:
+  - { key: F, mods: Alt, action: ToggleFullscreen }
+
+colors:
+  primary:
+    background: "0x212121"
+    foreground: "0xe3e1e4"
+
+  normal:
+    black: "0x1a181a"
+    red: "0xf85e84"
+    green: "0x9ecd6f"
+    yellow: "0xe5c463"
+    blue: "0x7accd7"
+    magenta: "0xab9df2"
+    cyan: "0xef9062"
+    white: "0xe3e1e4"
+
+  bright:
+    black: "0x1a181a"
+    red: "0xf85e84"
+    green: "0x9ecd6f"
+    yellow: "0xe5c463"
+    blue: "0x7accd7"
+    magenta: "0xab9df2"
+    cyan: "0xef9062"
+    white: "0xe3e1e4"

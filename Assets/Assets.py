@@ -29,8 +29,8 @@ def compileGtkTheme(outputPath, hidpi):
     command.append(sourceFile)
     subprocess.run(command, stdout=subprocess.DEVNULL)
 
-def formatHiDPI(outputPath, hidpi):
-    sourcePath = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'XfceHiDPI')
+def formatXfceHiDPI(outputPath, hidpi):
+    sourcePath = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'ConfigHiDPI')
     print('Configuring xfwm4')
     with open(os.path.join(sourcePath, 'xfwm4.xml.in'), 'r') as xfwmFile:
         xfwmTemplate = Template(xfwmFile.read())
@@ -48,7 +48,20 @@ def formatHiDPI(outputPath, hidpi):
     with open(os.path.join(outputPath, 'xsettings.xml'), 'w+') as xsettingsFile:
         xsettingsFile.write(xsettingsData)
 
+def formatAlacrittyHiDPI(outputPath, hidpi):
+    if not os.path.exists(outputPath):
+        os.mkdir(outputPath)
+    sourcePath = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'ConfigHiDPI')
+    print('Configuring alacritty')
+    with open(os.path.join(sourcePath, 'alacritty.yml.in'), 'r') as configFile:
+        configTemplate = Template(configFile.read())
+    fontSize = '19' if hidpi else '9'
+    configData = configTemplate.substitute(fontsize=fontSize)
+    with open(os.path.join(outputPath, 'alacritty.yml'), 'w+') as configFile:
+        configFile.write(configData)
+
 def compileAssets(root, hidpi=False):
     compileWindowTheme(os.path.join(root, 'themes/WindowTheme'), hidpi)
     compileGtkTheme(os.path.join(root, 'themes'), hidpi)
-    formatHiDPI(os.path.join(root, 'config/xfce4/xfconf/xfce-perchannel-xml'), hidpi)
+    formatXfceHiDPI(os.path.join(root, 'config/xfce4/xfconf/xfce-perchannel-xml'), hidpi)
+    formatAlacrittyHiDPI(os.path.join(root, 'config/alacritty'), hidpi)
