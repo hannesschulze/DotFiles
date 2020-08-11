@@ -14,6 +14,7 @@ def checkForRequirement(requirement):
 def build():
     # Requirements
     checkForRequirement('inkscape')
+    checkForRequirement('oomox-cli')
 
     # Arguments
     hidpi = '--hidpi' in sys.argv
