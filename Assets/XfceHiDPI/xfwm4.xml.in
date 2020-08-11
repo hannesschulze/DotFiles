@@ -40,7 +40,7 @@
     <property name="snap_width" type="empty"/>
     <property name="theme" type="string" value="WindowTheme"/>
     <property name="title_alignment" type="empty"/>
-    <property name="title_font" type="string" value="Inter Heavy 16"/>
+    <property name="title_font" type="string" value="Inter Heavy $titlefontsize"/>
     <property name="title_horizontal_offset" type="empty"/>
     <property name="title_shadow_active" type="empty"/>
     <property name="title_shadow_inactive" type="empty"/>

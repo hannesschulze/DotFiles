@@ -1,6 +1,7 @@
 import os
 import subprocess
 import shutil
+from string import Template
 from Assets.WindowTheme.Map import WINDOW_THEME_FILES
 
 def svgToPng(source, output, hidpi):
@@ -28,6 +29,26 @@ def compileGtkTheme(outputPath, hidpi):
     command.append(sourceFile)
     subprocess.run(command, stdout=subprocess.DEVNULL)
 
+def formatHiDPI(outputPath, hidpi):
+    sourcePath = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'XfceHiDPI')
+    print('Configuring xfwm4')
+    with open(os.path.join(sourcePath, 'xfwm4.xml.in'), 'r') as xfwmFile:
+        xfwmTemplate = Template(xfwmFile.read())
+    titleFontSize = '16' if hidpi else '9'
+    xfwmData = xfwmTemplate.substitute(titlefontsize=titleFontSize)
+    with open(os.path.join(outputPath, 'xfwm4.xml'), 'w+') as xfwmFile:
+        xfwmFile.write(xfwmData)
+
+    print('Configuring xsettings')
+    with open(os.path.join(sourcePath, 'xsettings.xml.in'), 'r') as xsettingsFile:
+        xsettingsTemplate = Template(xsettingsFile.read())
+    cursorSize = '48' if hidpi else '24'
+    scaleFactor = '2' if hidpi else '1'
+    xsettingsData = xsettingsTemplate.substitute(cursorsize=cursorSize, scalefactor=scaleFactor)
+    with open(os.path.join(outputPath, 'xsettings.xml'), 'w+') as xsettingsFile:
+        xsettingsFile.write(xsettingsData)
+
 def compileAssets(root, hidpi=False):
     compileWindowTheme(os.path.join(root, 'themes/WindowTheme'), hidpi)
     compileGtkTheme(os.path.join(root, 'themes'), hidpi)
+    formatHiDPI(os.path.join(root, 'config/xfce4/xfconf/xfce-perchannel-xml'), hidpi)

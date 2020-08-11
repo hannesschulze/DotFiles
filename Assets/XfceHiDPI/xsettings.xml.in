@@ -35,10 +35,10 @@
     <property name="ButtonImages" type="empty"/>
     <property name="MenuBarAccel" type="empty"/>
     <property name="CursorThemeName" type="string" value="DMZ-Black"/>
-    <property name="CursorThemeSize" type="int" value="48"/>
+    <property name="CursorThemeSize" type="int" value="$cursorsize"/>
     <property name="DecorationLayout" type="empty"/>
   </property>
   <property name="Gdk" type="empty">
-    <property name="WindowScalingFactor" type="int" value="2"/>
+    <property name="WindowScalingFactor" type="int" value="$scalefactor"/>
   </property>
 </channel>
