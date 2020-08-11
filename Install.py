@@ -18,10 +18,12 @@ PLANK_LAYOUT = "['thunar.dockitem', 'org.gnome.Epiphany.dockitem', 'firefox.dock
                "'discord.dockitem', 'telegramdesktop.dockitem', 'signal-desktop.dockitem', 'spotify.dockitem', " + \
                "'com.github.hannesschulze.conecto.dockitem', 'trash.dockitem']"
 
-def setPlankLayout():
+def setPlankPreferences():
     command = ['dconf', 'write', '/net/launchpad/plank/docks/dock1/dock-items', PLANK_LAYOUT]
-    print('Applying plank layout...')
+    print('Applying plank preferences...')
     subprocess.call(command)
+    subprocess.call(['dconf', 'write', '/net/launchpad/plank/docks/dock1/icon-size', '40'])
+    subprocess.call(['dconf', 'write', '/net/launchpad/plank/docks/dock1/theme', '"Transparent"'])
 
 # Install dotfiles
 installFolder('themes/oomox-GtkTheme', '.themes')
@@ -34,4 +36,4 @@ installFolder('config/ulauncher', '.config')
 installFolder('config/xfce4', '.config')
 
 # Apply settings
-setPlankLayout()
+setPlankPreferences()
