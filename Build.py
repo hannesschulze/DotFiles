@@ -5,7 +5,7 @@ from Assets.Assets import compileAssets
 
 def checkForRequirement(requirement):
     try:
-        subprocess.call([requirement, '--version'], stdout=subprocess.DEVNULL)
+        subprocess.call([requirement, '--version'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         print('Requirement "' + requirement + '" found')
     except OSError as e:
         print('Error: Requirement "' + requirement + '" not found!')
@@ -16,6 +16,8 @@ def build():
     checkForRequirement('inkscape')
     checkForRequirement('oomox-cli')
     checkForRequirement('git')
+    checkForRequirement('dconf')
+    checkForRequirement('plank')
 
     # Arguments
     hidpi = '--hidpi' in sys.argv
