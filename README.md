@@ -1,5 +1,7 @@
 # Dotfiles
 
+![Screenshot](Screenshot.png)
+
 ## Dependencies
 
 - `xfce4`
@@ -36,3 +38,7 @@ Set up autostart for the following applications:
 ### Fixing the GTK theme
 
 Generating the GTK theme using `oomox-cli` does not seem to work properly. If that is the case, import the color scheme (`Assets/GtkTheme/GtkTheme`) into `oomox-gui` and generate the theme.
+
+## Usage
+
+Use <kbd>Alt</kbd> <kbd>Space</kbd> to access Ulauncher.
