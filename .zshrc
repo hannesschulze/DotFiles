@@ -12,5 +12,3 @@ PATH=$HOME/.local/bin:$HOME/.cargo/bin:/opt/swift/usr/bin:$PATH
 alias top=ytop
 alias cat=bat
 alias ls=exa
-
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
