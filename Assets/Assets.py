@@ -5,7 +5,7 @@ from string import Template
 from Assets.WindowTheme.Map import WINDOW_THEME_FILES
 
 def svgToPng(source, output, hidpi):
-    command = ['inkscape', source, '--export-png=' + output]
+    command = ['inkscape', source, '--export-filename=' + output]
     if hidpi:
         command.append('--export-dpi=192')
     subprocess.run(command, stdout=subprocess.DEVNULL)

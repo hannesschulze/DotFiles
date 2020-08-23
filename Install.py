@@ -1,5 +1,6 @@
 import subprocess
 import os
+import shutil
 from Build import build
 
 # Build
@@ -34,8 +35,10 @@ installFolder('config/nvim', '.config')
 installFolder('config/plank', '.config')
 installFolder('config/ulauncher', '.config')
 installFolder('config/xfce4', '.config')
+installFolder('config/zsh', '.config')
 installFolder('fonts/JetBrainsMono/ttf', '.fonts')
 installFolder('fonts/inter/Inter Desktop', '.fonts')
+copyfile('config/.zshrc', '.config/.zshrc')
 
 # Apply settings
 setPlankPreferences()

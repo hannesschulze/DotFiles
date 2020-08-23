@@ -4,3 +4,6 @@
 [submodule "fonts/JetBrainsMono"]
 	path = fonts/JetBrainsMono
 	url = https://github.com/JetBrains/JetBrainsMono.git
+[submodule "config/zsh/typewritten"]
+	path = config/zsh/typewritten
+	url = https://github.com/reobin/typewritten.git

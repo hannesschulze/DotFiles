@@ -14,6 +14,9 @@
 - `dconf-cli`
 - `gtk2-engines`
 - `git`
+- `ytop`
+- `exa`
+- `bat`
 
 ## Installation
 
